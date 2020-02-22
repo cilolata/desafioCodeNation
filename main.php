@@ -66,11 +66,13 @@ for($i = 0; $i < count($split_frase); $i++){
       $descriptografada .= chr($novaFrase);
       
       
-      $x = $descriptografada . '.';
+      $x = $descriptografada;
     }
     
   }
   
+  //tira os espaços no fim da string
+  $x = trim($x);
   var_dump($x);
   $z = $obj->resumo_criptografico;
   
@@ -110,6 +112,8 @@ for($i = 0; $i < count($split_frase); $i++){
           'answer' => curl_file_create('answer.json')
         
         ], 
+        CURLOPT_INFILESIZE =>  $answer
+
 
         ]);
 
