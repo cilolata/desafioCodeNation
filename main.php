@@ -45,8 +45,11 @@ $descriptografada = ' ';
 for($i = 0; $i < count($split_frase); $i++){ 
  
   if($split_frase[$i] == '.' ||  $split_frase[$i] == ' '){
-      
+
+      //ord — Retorna o valor ASCII do caractere
       $novaFrase =  ord($split_frase[$i]);
+
+      //Retorna uma string de um único caractere contendo o caracter especificado pelo ascii.
       $descriptografada .= chr($novaFrase);
       
   }else{
@@ -76,7 +79,7 @@ for($i = 0; $i < count($split_frase); $i++){
   var_dump($x);
   $z = $obj->resumo_criptografico;
   
-  
+  //codifica a frase ee novo
   $codificadaNovo = sha1($x);
   
   
@@ -90,7 +93,7 @@ for($i = 0; $i < count($split_frase); $i++){
     "resumo_criptografico" => $z
   ];
   
-
+      //adiciona o arquivo em um formato json
       $answer = file_put_contents('answer.json', json_encode($novo_json));
 
       $url = 'https://api.codenation.dev/v1/challenge/dev-ps/submit-solution?token=61b6ebfd49c1db63bdf10cc7734bd35ad6dda7db';
